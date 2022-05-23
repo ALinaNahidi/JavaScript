@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="local" onclick="localScore()">
+      <button>LocalScore</button>
+      <button id="localCount">0</button>
+    </div>
+    <br />
+    <div id="session" onclick="sessionScore()">
+      <button>SessionScore</button>
+      <button id="sessionCount">0</button>
+    </div>
+
+    <script>
+      const totalCountLocal = document.getElementById("localCount");
+      var countLocal = 0;
+      totalCountLocal.innerHTML = countLocal;
+      localStorage.setItem("countLocal", countLocal);
+
+      const totalCountSession = document.getElementById("sessionCount");
+      var countSession = 0;
+      totalCountSession.innerHTML = countSession;
+      sessionStorage.setItem("countSession", countSession);
+
+      function localScore() {
+        countLocal++;
+        totalCountLocal.innerHTML = countLocal;
+        localStorage.setItem("countLocal", countLocal);
+      }
+
+      function sessionScore() {
+        countSession++;
+        totalCountSession.innerHTML = countSession;
+        sessionStorage.setItem("countSession", countSession);
+      }
+
+      // window.onload = () => {
+      //     localStorage.removeItem('countLocal')
+      //     sessionStorage.removeItem('countSession')
+      // }
+    </script>
+  </body>
+</html>
